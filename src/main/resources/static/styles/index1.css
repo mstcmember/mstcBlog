@@ -1,0 +1,28 @@
+.main {
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    margin-top:10px;
+}
+.middle{
+    float: left;
+    margin-left:2%;
+    width: 55%;
+    height:100%;
+    background-color:#FFEBCD;
+}
+.right{    float: right;
+    margin-right:2%;
+    width: 23%;
+    height:80%;
+    background-color:#CDC1C5;
+}
+
+.left{
+    background-color:#D3D3D3;
+    float: left;
+    width: 16%;
+    height:100%;
+}
+
+

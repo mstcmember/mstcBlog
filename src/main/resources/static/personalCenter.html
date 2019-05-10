@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dropeffect="none"
+      class="js is-AppPromotionBarVisible cssanimations csstransforms csstransitions flexbox no-touchevents no-mobile"
+      style="">
+<head>
+    <link rel="stylesheet" type="text/css" href="styles/question.css">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/login.css">
+    <link rel="stylesheet" type="text/css" href="styles/detail.css">
+    <link rel="stylesheet" type="text/css" href="styles/personalCenter.css">
+    <link rel="stylesheet" type="text/css" href="styles/min.css">
+    <link rel="stylesheet" type="text/css" href="styles/personalCenterHead.css">
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+    <style type="text/css">.cropper-modal .modal[data-v-15325571]{width:830px;text-align:center}.modal-head[data-v-15325571]{position:relative;text-align:center;padding:0 20px;border-bottom:1px solid #e5e9ef}.modal-head a[data-v-15325571]{color:#6d757a}.modal-head a[data-v-15325571]:hover{color:#00a1d6}.head-wrap[data-v-15325571]{position:relative;font-size:14px;color:#222;height:50px;line-height:50px;text-align:left}.modal-content[data-v-15325571]{padding:80px 20px 56px;display:inline-block}.img-clip-wrap[data-v-15325571]{float:left;position:relative;margin-right:40px}.border-line[data-v-15325571]{height:182px;width:1px;background:#e5e9ef;float:left}.container-bg[data-v-15325571]{width:180px;height:180px;background-color:#000;border-radius:4px;border:1px solid #e5e9ef}.img-container[data-v-15325571]{position:relative;height:0;margin:auto}.img-container img[data-v-15325571]{position:relative;width:100%;height:100%}.img-container .shadow-box[data-v-15325571]{position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,.5);z-index:1}.reset-img[data-v-15325571]{position:absolute;bottom:-28px;left:50%;-webkit-transform:translate(-50%);transform:translate(-50%)}.reset-img label[data-v-15325571]{font-size:12px;color:#6d757a;cursor:pointer}.reset-img label i[data-v-15325571]{display:inline-block;width:18px;height:18px;vertical-align:bottom;background-image:url(https://s1.hdslb.com/bfs/static/account-fe/static/img/icons_m_2.57e5263.png);background-position:-23px -1303px;cursor:pointer}.reset-img label[data-v-15325571]:hover{color:#00b5e5}.reset-img label:hover i[data-v-15325571]{background-position:-87px -1303px}#file_input[data-v-15325571]{display:none}.first-change-lb[data-v-15325571]{cursor:pointer;background:#f1f2f5;width:180px;height:180px;position:absolute;top:0;left:0;border:1px solid #e5e9ef;border-radius:4px;-webkit-transition:all .6s ease;transition:all .6s ease}.first-change-lb[data-v-15325571]:hover{background:#e5e9ef}.first-change-lb span[data-v-15325571]{display:block;font-family:MicrosoftYaHei;font-size:16px;color:#6d757a;line-height:20px;margin-top:10px;padding:0 12px;letter-spacing:0}.first-change-lb i[data-v-15325571]{margin:52px auto 0;width:54px;height:46px;display:block;background:url(https://s1.hdslb.com/bfs/static/account-fe/static/img/icons_m_2.57e5263.png);background-position:-101px -1065px}.img-preview-wrap[data-v-15325571]{margin-left:40px;margin-top:30px;float:left}.pre-container[data-v-15325571]{width:96px;height:96px;overflow:hidden;border-radius:50%;border:1px solid #e6eaf0;background-size:cover}.pre-container img[data-v-15325571]{position:relative;width:100%;height:100%;border-radius:4px}.pre-info[data-v-15325571]{margin-top:20px;font-size:12px;color:#99a2aa}.clearfix[data-v-15325571]:after,.clearfix[data-v-15325571]:before{content:" ";display:table}.clearfix[data-v-15325571]:after{clear:both}.modal-footer[data-v-15325571]{text-align:center;margin-top:40px}.modal-btn[data-v-15325571]{display:inline-block;width:140px;height:40px;font-size:14px;line-height:32px;border-radius:4px;cursor:pointer;text-decoration:none}.descript[data-v-15325571]{line-height:16px;color:#99a2aa}.btn-confirm[data-v-15325571]{border:1px solid #00a1d6;color:#fff;background-color:#00a1d6}.btn-confirm[data-v-15325571]:hover{background-color:#00b5e5;border-color:#00b5e5}.btn-confirm.disabled[data-v-15325571]{background:#f4f5f7;border-color:#f4f5f7;color:#ccd0d7;cursor:auto}</style>
+    <style type="text/css">.record-nav{height:50px;border-bottom:1px solid #ddd;line-height:50px}.record-nav-item{float:left;font-size:14px;text-align:center;margin-left:38px!important;min-width:56px;color:#222;cursor:pointer}.record-nav .on{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3FpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDowY2YzZmZkNy05MWYxLWJjNDktYTMzNy0xZWE1ZDlmOTRlNzUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QjNDQkVEOURCNUVCMTFFNUIyRkNBMTcwQUQzNUMxRTAiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QjNDQkVEOUNCNUVCMTFFNUIyRkNBMTcwQUQzNUMxRTAiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjA5NDM5MzQ4LTU3MGYtZDI0NC1hOThiLTlkNjJjYmFkZTJlNyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDowY2YzZmZkNy05MWYxLWJjNDktYTMzNy0xZWE1ZDlmOTRlNzUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6k9jasAAAAMElEQVR42mJkWHiNAQhEgXgREMcB8WsmIMEFxJuB2ANKc4EElwOxOQMEgOjlAAEGAPtdBvsKf21nAAAAAElFTkSuQmCC) bottom no-repeat;border-bottom:1px solid #00a1d6;color:#00a1d6}.record-content{padding:20px 39px 0}</style>
+    <style type="text/css">.notifications-container{max-width:600px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;margin-top:10px;margin-bottom:60px}.notifications-container .no-notifications-placeholder{height:150px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-weight:500;padding:20px;font-size:16px;color:#bdc3c7;text-align:center}.notifications-container .notification-list-item{display:-webkit-box;display:-ms-flexbox;display:flex;width:100%;min-height:60px;background-color:white;border-bottom:1px #dddddd solid}.notifications-container .notification-list-item.notification-list-unread-item{background-color:#e2f5ff}.notifications-container .notification-list-item .notification-icon-container{-webkit-box-flex:0;-ms-flex:0 0 64px;flex:0 0 64px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-size:26px}.notifications-container .notification-list-item .notification-icon-container .notification-icon{background-color:#3fbbff;color:white;width:36px;height:36px;border-radius:1000px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.notifications-container .notification-list-item .notification-content-container{padding:15px 0 15px 0;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start;width:100%}.notifications-container .notification-list-item .notification-content-container .notification-content-header{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-item-align:stretch;align-self:stretch}.notifications-container .notification-list-item .notification-content-container .notification-content-header .notification-content-title{font-size:12px;color:#95a5a6;text-transform:uppercase;font-weight:500}.notifications-container .notification-list-item .notification-content-container .notification-content-body{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;-ms-flex-item-align:stretch;align-self:stretch;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}.notifications-container .notification-list-item .notification-content-container .notification-content-body .notification-main-content{margin:5px 0}.notifications-container .notification-list-item .notification-content-container .notification-content-footer{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-item-align:stretch;align-self:stretch}.notifications-container .notification-list-item .notification-action-btn-container{-ms-flex-item-align:center;align-self:center;padding:10px}.notifications-container .notification-list-item .notification-action-btn-container .notification-content-action-btn{font-weight:500;text-transform:uppercase;font-size:11px;background-color:white;color:#3fbbff;border:2px solid #3fbbff}.notification-content-date{font-size:11px}</style>
+
+    <link rel="stylesheet" href="styles/myPagination.css">
+    <script src="scripts/myPagination.js"></script>
+
+
+    <meta charset="UTF-8">
+    <title>personalCenter</title>
+</head>
+<body>
+<div id="header" style="height:30%"></div>
+
+<div id="app">
+    <div class="main">
+        <div class="security_content">
+            <!--<div class="left">-->
+            <!--<div data-v-ee13a7d2 class="security-left">-->
+            <!--<ul class="nav nav-pills nav-stacked">-->
+            <!--<li role="presentation" class="active"><a href="/blog.html">个人中心首页</a></li>-->
+            <!--<li role="presentation"><a href="/personalCenter.html?flag=1">我的信息</a></li>-->
+            <!--<li role="presentation"><a href="/personalCenter.html?flag=1">我的头像</a></li>-->
+            <!--<li role="presentation" ><a href="/personalCenter.html?flag=2">修改密码</a></li>-->
+            <!--<li role="presentation" ><a href="/personalCenter.html?flag=3">消息</a></li>-->
+            <!--<li role="presentation" ><a href="/personalCenter.html?flag=4">我的收藏</a></li>-->
+            <!--&lt;!&ndash;<li role="presentation" ><a href="/personalCenter.html?flag=5">机器学习</a></li>&ndash;&gt;-->
+            <!--&lt;!&ndash;<li role="presentation" ><a href="/personalCenter.html?flag=6">硬件嵌入式</a></li>&ndash;&gt;-->
+            <!--</ul>-->
+            <!--</div>-->
+
+
+            <div data-v-ee13a7d2="" class="security-left">
+                <span data-v-ee13a7d2="" class="security-title" id="security-title">个人中心</span>
+                <ul data-v-ee13a7d2="" id="ser-ul" class="security-ul">
+
+                    <!--<li data-v-ee13a7d2="" class="security-list">-->
+                    <!--<i data-v-ee13a7d2="" class="security-icon icon-0"></i>-->
+                    <!--<span data-v-ee13a7d2="" class="security-nav-name">首<b-->
+                    <!--style="width:28px; display:inline-block"></b>页</span>-->
+                    <!--</li>-->
+
+                    <li data-v-ee13a7d2="" class=" security-list outer-link-exact-activer">
+                        <a data-v-ee13a7d2="" class="security-list" style="text-decoration:none;"  onclick="turnPage(0)">
+                            <i data-v-ee13a7d2="" class="security-icon icon-0"></i>
+                            <span data-v-ee13a7d2="" class="security-nav-name" id="security-nav-name">首<b style="width:28px; display:inline-block"></b>页
+                            </span>
+                        </a>
+                    </li>
+                    <li data-v-ee13a7d2="" class="security-list" id="security-list-1">
+                        <a data-v-ee13a7d2="" class="security-list" style="text-decoration:none;"  onclick="turnPage(1)">
+                            <i data-v-ee13a7d2="" class="security-icon icon-10"></i>
+                            <span data-v-ee13a7d2="" class="security-nav-name" id="security-nav-name-1">我的信息
+                        </span>
+                        </a>
+                    </li>
+                    <li data-v-ee13a7d2="" class="security-list" id="security-list-2">
+                        <a data-v-ee13a7d2="" class="security-list" style="text-decoration:none;"  onclick="turnPage(2)">
+                            <i data-v-ee13a7d2="" class="security-icon icon-4"></i>
+                            <span data-v-ee13a7d2="" class="security-nav-name" id="security-nav-name-2">我的头像
+                            </span>
+                        </a>
+                    </li>
+                    <li data-v-ee13a7d2="" class="security-list" id="security-list-3" style="display: none">
+                        <a data-v-ee13a7d2="" class="security-list" style="text-decoration:none;"  onclick="turnPage(3)">
+                            <i data-v-ee13a7d2="" class="security-icon icon-2"></i>
+                            <span data-v-ee13a7d2="" class="security-nav-name">修改密码
+                            </span>
+                        </a>
+                    </li>
+                    <li data-v-ee13a7d2="" class="security-list" id="security-list-4" style="display: none">
+                        <a data-v-ee13a7d2="" class="security-list" style="text-decoration:none;"  onclick="turnPage(4)">
+                            <i data-v-ee13a7d2="" class="security-icon icon-7"></i>
+                            <span data-v-ee13a7d2="" class="security-nav-name">黑名单管理
+                            </span>
+                        </a>
+                    </li>
+                    <li data-v-ee13a7d2="" class="security-list" id="security-list-5" style="display: none">
+                        <a data-v-ee13a7d2="" class="security-list" style="text-decoration:none;"  onclick="turnPage(5)">
+                            <i data-v-ee13a7d2="" class="security-icon icon-9"></i>
+                            <span data-v-ee13a7d2="" class="security-nav-name">我的消息
+                            </span>
+                        </a>
+                    </li>
+                    <li data-v-ee13a7d2="" class="security-list" id="security-list-6" style="display: none">
+                        <a data-v-ee13a7d2="" class="security-list" style="text-decoration:none;"  onclick="turnPage(6)">
+                            <i data-v-ee13a7d2="" class="security-icon icon-11"></i>
+                            <span data-v-ee13a7d2="" class="security-nav-name">我的收藏
+                            </span>
+                        </a>
+                    </li>
+                    <li data-v-ee13a7d2="" class="security-list" id="security-list-7" style="display: none">
+                        <a data-v-ee13a7d2="" class="security-list" style="text-decoration:none;"  onclick="turnPage(7)">
+                            <i data-v-ee13a7d2="" class="security-icon icon-11"></i>
+                            <span data-v-ee13a7d2="" class="security-nav-name">贡献度
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="right" id="personalCenter-right" style="display: block">
+                <div class="security-right">
+                    <div data-v-4cbad597="" class="security-right-title"></div>
+                </div>
+                <div class="user-setting-warp"></div>
+            </div>
+
+            <div class="right" id="personalCenter-right0" style="display: none">
+                <div class="security-right">
+                    <div data-v-4cbad597="" class="security-right-title">
+                        <span data-v-4cbad597="" class="security-right-title-icon"></span>
+                        <span data-v-4cbad597="" class="security-right-title-text" id="security-right-title-text-0">我的首页</span>
+                    </div>
+
+                    <div class="user-setting-warp">
+                        <ul class="nav nav-tabs">
+                            <li id="personal-search-kind-2" role="presentation"><a onclick="personalChooseKind(0)">算法编程题</a></li>
+                            <li id="personal-search-kind-3" role="presentation" class="active"><a onclick="personalChooseKind(1)">博客</a></li>
+                            <li id="personal-search-kind-4" role="presentation"><a onclick="personalChooseKind(2)">技术帖</a></li>
+                            <li id="personal-search-kind-5" role="presentation"><a onclick="personalChooseKind(3)">活动</a></li>
+                        </ul>
+                        <div id="discussSolution" class="tab-content discuss-list-base">
+                            <div id="discuss_list" class="discuss-list">
+                            </div>
+                        </div>
+                        <div id="personal_show" class="pagination"></div>
+                        <script id="each_question" type="text/x-jquery-tmpl">
+                {{each question}}
+                <div class="discuss-item last-visited-topic-entered
+                ">
+                    <div class="user-avatar hidden-xs" title="{{= $value.nickname}}">
+                        <div class="avatar simple-avatar__1nLM hover-effect__2WOZ"><a href="/henryeecs" target="_blank"><img
+                                class="simp-avatar__mRN_" src="{{= $value.headUrl}}"
+                                alt="{{= $value.nickname}}" data-has-link="true" style="height: 30px; width: 30px;"></a></div>
+                                {{if $value.type==0}}
+                                <span class="label label-info">算法题</span>
+                                {{else  $value.type==1}}
+                                <span class="label label-primary">博文</span>
+                                {{else  $value.type==2}}
+                                <span class="label label-success">技术贴</span>
+                                {{else  $value.type==3}}
+                                <span class="label label-warning">活动</span>
+                                {{/if}}
+                    </div>
+                    <div class="info">
+                        <div class="title"><a href="
+                        {{if type == 0}}
+                        programmingDetail.html?programmingId={{= $value.id}}
+                        {{else type == 1}}
+                        blogDetail.html?blogId={{= $value.id}}
+                        {{else type == 2}}
+                        questionDetail.html?questionId={{= $value.id}}
+                        {{else type == 3}}
+                        activityDetail.html?activityId={{= $value.id}}
+                        {{/if}}
+                        ">{{= $value.title}} </a></div>
+                        <div class="tab-content"><a href="
+                        {{if type == 0}}
+                        programmingDetail.html?programmingId={{= $value.id}}
+                        {{else type == 1}}
+                        blogDetail.html?blogId={{= $value.id}}
+                        {{else type == 2}}
+                        questionDetail.html?questionId={{= $value.id}}
+                        {{else type == 3}}
+                        activityDetail.html?activityId={{= $value.id}}
+                        {{/if}}
+                        ">{{= $value.content}} </a></div>
+                        <div class="updates"><a id="author_name" href="">{{= $value.nickname}}&nbsp;&nbsp;</a>Created at:&nbsp;<span
+                                title="{{= $value.createTimeStr}}">{{= $value.createTimeStr}}&nbsp; | &nbsp;</span><span>{{= $value.commentCount}}条评论</span>
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <div class="votes item">
+                            <div class="name">收藏</div>
+                            <div class="value">{{= $value.collectionCount}}</div>
+                        </div>
+                        <div class="views item">
+                            <div class="name">浏览量</div>
+                            <div class="value">{{= $value.viewCount}}</div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+        </script>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="right" id="personalCenter-right1" style="display: none">
+                <div class="security-right">
+                    <div data-v-4cbad597="" class="security-right-title">
+                        <span data-v-4cbad597="" class="security-right-title-icon"></span>
+                        <span data-v-4cbad597="" class="security-right-title-text" id="security-right-title-text-1">我的信息</span>
+                    </div>
+
+                    <div class="user-setting-warp">
+                        <div>
+                            <form class="el-form clearfix" mode="[object Object]">
+
+                                <div class="el-form-item user-nick-name">
+                                    <label class="el-form-item__label">昵称:</label>
+                                    <div class="el-form-item__content">
+                                        <div class="el-input" id="el-input"><!----><!---->
+                                            <input autocomplete="off" maxlength="8" type="text" rows="2"
+                                                   maxlength="16" validateevent="true" class="el-input__inner" id="personalCenter-nickname"><!---->
+                                            <!----></div>
+                                    </div>
+                                </div>
+
+                                <div class="el-form-item user-my-acount"><label
+                                        class="el-form-item__label">帐号:</label>
+                                    <div class="el-form-item__content"><span class="userinfo-useracount" id="personalCenter-Id"> </span>
+                                        <!----></div>
+                                </div>
+
+                                <div class="el-form-item user-my-sex"><label class="el-form-item__label">性别:</label>
+                                    <div class="el-form-item__content">
+                                        <div class="el-radio-group" id="el-radio-group">
+                                            <label class="el-radio-button"><input type="radio" class="el-radio-button__orig-radio"
+                                                                                  name="el-radio-button__orig-radio" value="男">
+                                                <span class="el-radio-button__inner">男</span></label>
+                                            <label class="el-radio-button"><input type="radio" class="el-radio-button__orig-radio"
+                                                                                  name="el-radio-button__orig-radio" value="女">
+                                                <span class="el-radio-button__inner">女</span></label>
+                                            <label class="el-radio-button is-active"><input type="radio" class="el-radio-button__orig-radio"
+                                                                                            name="el-radio-button__orig-radio" value="保密" checked="checked">
+                                                <span class="el-radio-button__inner">保密</span></label>
+                                            <!--<input type="radio" class="el-radio-button__orig-radio" name="radio" value="男">男-->
+                                            <!--<input type="radio" class="el-radio-button__orig-radio" name="radio" value="女">女-->
+                                            <!--<input type="radio" class="el-radio-button__orig-radio" name="radio" value="保密" checked>保密-->
+                                        </div><!---->
+                                    </div>
+                                </div>
+
+                                <div class="el-form-item user-my-date"><label class="el-form-item__label">出生日期:</label>
+                                    <div class="el-form-item__content">
+                                        <div class="el-date-editor el-input el-date-editor--date" id="el-date-pick">
+                                            <!--&lt;!&ndash;&ndash;&gt;  <i class="el-input__icon el-icon-date"></i>-->
+                                            <input type="date" class="el-input__inner" id="personalCenter-date">
+                                            <!--<input autocomplete="off"-->
+                                            <!--placeholder="选择日期"-->
+                                            <!--readonly="readonly"-->
+                                            <!--type="text"-->
+                                            <!--rows="2"-->
+                                            <!--class="el-input__inner">-->
+                                            <!----><!----></div><!----></div>
+                                </div>
+
+                                <div class="el-form-item user-my-school">
+                                    <label class="el-form-item__label">学校:</label>
+                                    <div class="el-form-item__content">
+                                        <div class="el-input" id="el-input-school"><!----><!---->
+                                            <input autocomplete="off" placeholder="你的学校" type="text" rows="2"
+                                                   maxlength="16" validateevent="true" class="el-input__inner" id="personalCenter-school"><!---->
+                                            <!----></div>
+                                    </div>
+                                </div>
+
+                                <!--<div class="el-form-item user-my-sign"><label class="el-form-item__label">我的签名:</label>
+                                    <div class="el-form-item__content">
+                                        <div class="el-textarea"><textarea placeholder="设置您的签名- ( ゜- ゜)つロ"
+                                                                           type="textarea" rows="2" autocomplete="off"
+                                                                           validateevent="true"
+                                                                           class="el-textarea__inner"></textarea></div>
+                                        <!----></div>
+                    </div>-->
+                    <div class="el-form-item user-my-hobby"><label class="el-form-item__label">爱好:</label>
+                        <div class="el-form-item__content">
+                            <div class="el-textarea" id="el-textarea"><textarea placeholder="你的爱好"
+                                                               type="textarea" rows="2" autocomplete="off"
+                                                               validateevent="true"
+                                                               class="el-textarea__inner"
+                                                               id="personalCenter-hobby" maxlength="20"></textarea></div>
+                            <!----></div>
+                    </div>
+
+
+
+
+                    <div class="el-form-item user-my-btn" id="save-button"><!---->
+                        <div class="el-form-item__content">
+                            <div class="padding-dom"></div>
+                            <div class="user-my-btn-warp">
+                                <button type="button" class="el-button el-button--primary" onclick="submitPersonalMessage()"><!---->
+                                    <!----><span>保存</span></button>
+                            </div><!----></div>
+                    </div>
+
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="right" id="personalCenter-right2" style="display: none">
+                <div class="security-right">
+                    <div data-v-4cbad597="" class="security-right-title">
+                        <span data-v-4cbad597="" class="security-right-title-icon"></span>
+                        <span data-v-4cbad597="" class="security-right-title-text" id="security-right-title-text-2">我的头像</span>
+                    </div>
+
+
+                    <!--<div class="user-setting-warp">-->
+                    <!--<div>-->
+                    <!--<form class="el-form clearfix" mode="[object Object]">-->
+                    <!--<div class="face-g-preview">-->
+                    <!--<a href="https://account.bilibili.com/account/face/upload" id="face-g-change" class="face-g-action"><p class="line-1">更换</p><p class="line-2">头像</p></a>-->
+                    <!--<img id="face-g-g"><img src=" " id="face-g-avatar">-->
+
+                    <!--</div>-->
+                    <!--</form>-->
+                    <!--</div>-->
+                    <!--</div>-->
+
+                    <center>
+                        <div data-v-15325571="" id="personal-headerUrl" class="modal-content clearfix" align="center" style="box-shadow: none; border: none" >
+                            <div data-v-15325571="" class="img-clip-wrap">
+                                <div data-v-15325571="" class="container-bg">
+                                    <div data-v-15325571="" class="img-container" >
+                                        <img data-v-15325571="" id="clip_src_img">
+                                        <div data-v-15325571="" class="shadow-box"></div>
+                                        <div data-v-305fb1c4="" data-v-15325571="" class="crop-wrap">
+                                            <div data-v-305fb1c4="" class="shadow-box" style="width: 0px; height: 0px; left: 0px; top: 0px;">
+                                                <img data-v-305fb1c4="" class="shadow-img" style="width: 0px; height: 0px; top: 0px; left: 0px;">
+                                            </div>
+                                            <div data-v-305fb1c4="" class="crop-box" style="width: 0px; height: 0px; left: 0px; top: 0px;">
+                                                <span data-v-305fb1c4="" class="drag-point point-lt"></span>
+                                                <span data-v-305fb1c4="" class="drag-point point-lb"></span>
+                                                <span data-v-305fb1c4="" class="drag-point point-rt"></span>
+                                                <span data-v-305fb1c4="" class="drag-point point-rb"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <label data-v-15325571="" for="file_input"   id="img-container" class="first-change-lb">
+                                    <i data-v-15325571=""></i> <span data-v-15325571="">选择图片</span>
+                                </label>
+
+
+                                <div data-v-15325571="" class="reset-img" style="display: none;">
+                                    <label data-v-15325571="" for="file_input">
+                                        <i data-v-15325571=""></i>&nbsp;重新选择
+                                    </label>
+                                </div>
+
+                                <form id = "upLoadForm">
+                                    <input data-v-15325571="" type="file" id="file_input" name="image" accept="image/png,image/jpg,image/jpeg">
+                                </form>
+                            </div>
+
+                            <div data-v-15325571="" class="border-line"></div>
+
+                            <div data-v-15325571="" class="img-preview-wrap">
+                                <div data-v-15325571="" class="pre-container" id="pre-container" >
+                                    <img data-v-15325571=""  style="display: none;">
+                                </div>
+                                <div data-v-15325571="" class="pre-info">当前头像</div>
+                            </div>
+
+                        </div>
+                    </center>
+
+                    <p data-v-15325571="" class="descript" align="center">请选择图片上传：大小180 * 180像素支持JPG、PNG等格式，图片需小于2M</p>
+
+                    <div data-v-15325571="" class="modal-footer" id="header-button" >
+                        <input data-v-15325571="" type="button" style="background-color: #00B091; color: white" value="更新" onclick="uploadImage();" class="modal-btn btn-confirm disabled">
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="right" id="personalCenter-right3"  style="display: none">
+                <div class="security-right">
+                    <div data-v-4cbad597="" class="security-right-title">
+                        <span data-v-4cbad597="" class="security-right-title-icon"></span>
+                        <span data-v-4cbad597="" class="security-right-title-text">修改密码</span>
+                    </div>
+
+                    <div class="input-group"style="margin-top:45px">
+                        <span class="input-group-addon" id="basic-addon1">注册邮箱</span>
+                        <input id="email" type="text" class="form-control" placeholder="您的注册邮箱" aria-describedby="basic-addon1" onchange="checkemailexistence()" required="">
+                    </div>
+
+                    <div class="input-group" style="margin-top:15px">
+                        <span class="input-group-addon" id="basic-addon2">新密码</span>
+                        <input id="new-password" type="text" class="form-control" placeholder="新密码" aria-describedby="basic-addon2">
+                        <!--<span class="input-group-addon" id="basic-addon2">@example.com</span>-->
+                    </div>
+                    <div class="input-group"style="margin-top:15px">
+                        <span class="input-group-addon" id="basic-addon3">确认新密码</span>
+                        <input id="confirm_password" type="text" class="form-control" placeholder="确认新密码" onchange="checkpassword()">
+                    </div>
+                    <div class="input-group"style="margin-top:15px">
+                        <span class="input-group-addon" id="basic-addon4">验证码</span>
+                        <input id="code" type="text" class="form-control" placeholder="请输入验证码">
+                    </div>
+                    <div class="button-wrapper command clearfix" style="margin-top:15px;margin-left:20%;width: 40%">
+                        <button id="btnSendCode" class="sign-button submit" type="button" onclick="getcode()">获取验证码</button>
+                    </div>
+                    <div class="button-wrapper command clearfix" style="margin-top:15px;margin-left:20%;width: 40%">
+                        <button class="sign-button submit" type="button" onclick="retrievePassword()">确认修改密码</button>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+            <div class="right" id="personalCenter-right4"  style="display: none">
+                <div class="security-right">
+                    <div data-v-4cbad597="" class="security-right-title">
+                        <span data-v-4cbad597="" class="security-right-title-icon"></span>
+                        <span data-v-4cbad597="" class="security-right-title-text">黑名单管理</span>
+                    </div>
+
+                    <div class="user-setting-warp">
+                        <div>
+                            <form class="el-form clearfix" mode="[object Object]">
+
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="right" id="personalCenter-right5" style="display: none">
+                <div class="security-right">
+                    <div data-v-4cbad597="" class="security-right-title">
+                        <span data-v-4cbad597="" class="security-right-title-icon"></span>
+                        <span data-v-4cbad597="" class="security-right-title-text">我的消息</span>
+                    </div>
+
+                    <div class="user-setting-warp">
+                        <!--<div class="record-nav">-->
+                        <!--<div class="record-nav-item on">私信</div>-->
+                        <!--<div class="record-nav-item">评论</div>-->
+                        <!--&lt;!&ndash;<div class="record-nav-item">经验记录</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="record-nav-item on">评论记录</div>&ndash;&gt;-->
+                        <!--</div>-->
+
+                        <ul class="nav nav-tabs">
+                            <li role="presentation" id="personal-center-comment" class="active" onclick="personalCenter_comment();"><a href="#">动态</a></li>
+                            <li role="presentation" id="personal-center-message" class=" " onclick="personalCenter_message();"><a href="#">私信</a></li>
+                            <li role="presentation" id="personal-center-system-message" class=" " ><a href="#">系统消息</a></li>
+                        </ul>
+
+                        <div id="list-group-comment" class="list-group" >
+                        </div>
+                        <div id="list-group-message" class="list-group" style="display: none " >
+                        </div>
+                        <div id="list-group-system-message" class="list-group" style="display: none">
+                        </div>
+
+                        <div id="pagination" class="pagination"></div>
+
+                        <script id="systemMessage" type="text/x-jquery-tmpl">
+                        {{each systemMessage}}
+                            <!--<a href="#" class="list-group-item active" style = "width: 750px">-->
+                            <a id="system-message-{{= $value.id}}" class="list-group-item " style = "width: 750px; padding-bottom: 0px"
+                            onclick="readMessage({{= $value.id}},{{= $value.entityType}},{{= $value.entityId}})">
+                                <p class="list-group-item-text">
+                                {{if $value.entityType==0}}
+                                <span class="label label-info">算法题</span>
+                                {{else  $value.entityType==1}}
+                                <span class="label label-primary">博文</span>
+                                {{else  $value.entityType==2}}
+                                <span class="label label-success">技术贴</span>
+                                {{else  $value.entityType==3}}
+                                <span class="label label-warning">活动</span>
+                                {{else $value.entityType==4}}
+                                <span class="label label-default">新闻</span>
+                                {{/if}}
+                                &nbsp;&nbsp;{{= $value.content}}
+                                {{if $value.hasRead==0}}
+                                <span  class="label label-danger" style="float:right">未读</span>
+                                {{/if}}
+                                </p>
+                                <p style="font-size: smaller; margin-top: 10px" >{{= $value.createTimeString}}</p>
+                            </a>
+                        {{/each}}
+                        </script>
+                    </div>
+                </div>
+            </div>
+
+
+
+                    <div class="right" id="personalCenter-right6" style="display: none">
+                        <div class="security-right">
+                            <div data-v-4cbad597="" class="security-right-title">
+                                <span data-v-4cbad597="" class="security-right-title-icon"></span>
+                                <span data-v-4cbad597="" class="security-right-title-text">我的收藏</span>
+                            </div>
+
+                            <div class="user-setting-warp">
+
+                                <ul class="nav nav-tabs">
+                                    <li id="collection-search-kind-2" role="presentation"><a onclick="collectionChooseKind(0)">算法编程题</a></li>
+                                    <li id="collection-search-kind-3" role="presentation" class="active"><a onclick="collectionChooseKind(1)">博客</a></li>
+                                    <li id="collection-search-kind-4" role="presentation"><a onclick="collectionChooseKind(2)">技术帖</a></li>
+                                    <li id="collection-search-kind-5" role="presentation"><a onclick="collectionChooseKind(3)">活动</a></li>
+                                </ul>
+                                <div id="collectionSolution" class="tab-content discuss-list-base">
+                                    <div id="collection_list" class="discuss-list">
+                                    </div>
+                                </div>
+                                <div id="collection_show" class="pagination"></div>
+                                <script id="each_collection" type="text/x-jquery-tmpl">
+                {{each question}}
+                <div class="discuss-item last-visited-topic-entered
+                ">
+                    <div class="user-avatar hidden-xs" title="">
+
+                    <div class="info">
+                        <div class="title"><a href="
+                        {{if $value.entityType == 0}}
+                        programmingDetail.html?programmingId={{= $value.entityId}}
+                        {{else $value.entityType == 1}}
+                        blogDetail.html?blogId={{= $value.entityId}}
+                        {{else $value.entityType == 2}}
+                        questionDetail.html?questionId={{= $value.entityId}}
+                        {{else $value.entityType == 3}}
+                        activityDetail.html?activityId={{= $value.entityId}}
+                        {{/if}}
+                        ">{{= $value.title}} </a></div>
+                    </div>
+                    </div>
+                    <div class="stats" style="float:right">
+                        <div class="views item">
+                            <div class="value">{{= $value.timeView}}</div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+        </script>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+            <div class="right" id="personalCenter-right7"  style="display: none">
+                <div class="security-right">
+                    <div data-v-4cbad597="" class="security-right-title">
+                        <span data-v-4cbad597="" class="security-right-title-icon"></span>
+                        <span data-v-4cbad597="" class="security-right-title-text">贡献度</span>
+                    </div>
+
+                    <div class="user-setting-warp">
+                        <div class="el-form-item user-nick-name">
+                            <label class="el-form-item__label">贡献度:</label>
+                            <div class="el-form-item__content">
+                                <span id="personalCenter-gong-xian-du"></span>
+                            </div>
+                        </div>
+                        <div class="el-form-item user-nick-name">
+                            <label class="el-form-item__label">贡献度排名:</label>
+                            <div class="el-form-item__content">
+                                <span id="personalCenter-pai-ming"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+<div id ="hidden" class="wrapper" style="position: fixed;top: 0;width: 100%;height: 100%;z-index: 999;background-color: rgba(55,55,55,0.5);display: flex;align-items: center;justify-content: center;">
+    <i class="fa fa-spinner fa-spin fa-5x"></i>
+</div>
+<script src="scripts/jquery.js"></script>
+<script src="scripts/jquery.tmpl.min.js"></script>
+<script src="scripts/myPagination.js"></script>
+<script>
+    $("#header").empty().load("head.html");
+</script>
+<script src="scripts/head.js"></script>
+<script src="scripts/login.js"></script>
+<script src="scripts/personalCenter.js"></script>
+
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        onloadHeader();
+        onloadPersonalMessage();
+    }
+    //---滑到底部加载--------------------------------------------------------------------------------
+</script>
+
+</html>

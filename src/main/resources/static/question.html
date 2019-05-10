@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%">
+<head>
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/question.css">
+    <link rel="stylesheet" href="styles/myPagination.css">
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+    <meta charset="UTF-8">
+    <title>技术讨论贴</title>
+</head>
+<body style="height:100%;position:relative">
+<div id="header" style="height:30%"></div>
+<div class="main clearfix">
+    <div class="left">
+        <ul class="nav nav-pills nav-stacked">
+            <li role="presentation"><a href="question.html">全部讨论帖</a></li>
+            <li role="presentation"><a href="question.html?flag=1">C++</a></li>
+            <li role="presentation"><a href="question.html?flag=2">Java</a></li>
+            <li role="presentation"><a href="question.html?flag=3">前端</a></li>
+            <li role="presentation"><a href="question.html?flag=4">后台</a></li>
+            <li role="presentation"><a href="question.html?flag=5">机器学习</a></li>
+            <li role="presentation"><a href="question.html?flag=6">硬件嵌入式</a></li>
+        </ul>
+    </div>
+    <div id ="middle" class="middle">
+        <div id="discussSolution" class="tab-content discuss-list-base">
+            <div id="discuss_list" class="discuss-list">
+            </div>
+        </div>
+        <div id="pagination" class="pagination"></div>
+    </div>
+
+    <script id="each_question" type="text/x-jquery-tmpl">
+                {{each question}}
+                <div class="discuss-item last-visited-topic-entered
+                ">
+                    <div class="user-avatar hidden-xs" title="{{= $value.nickname}}">
+                        <div class="avatar simple-avatar__1nLM hover-effect__2WOZ"><a href="personalCenter.html?userId={{= $value.userId}}" target="_blank"><img
+                                class="simp-avatar__mRN_" src="{{= $value.headUrl}}"
+                                alt="{{= $value.nickname}}" data-has-link="true" style="height: 30px; width: 30px;"></a></div>
+                    </div>
+                    <div class="info">
+                        <div class="title"><a href="questionDetail.html?questionId={{= $value.id}}">{{= $value.title}} </a></div>
+                        <div class="tab-content"><a href="questionDetail.html?questionId={{= $value.id}}">{{= $value.content}} </a></div>
+                        <div class="updates"><a id="author_name" href="personalCenter.html?userId={{= $value.userId}}">{{= $value.nickname}}&nbsp;&nbsp;</a>Created at:&nbsp;<span
+                                title="{{= $value.createTimeStr}}">{{= $value.createTimeStr}}&nbsp; | &nbsp;</span><span>{{= $value.commentCount}}条评论</span>
+                        </div>
+                    </div>
+                    <div class="stats">
+                        <div class="votes item">
+                            <div class="name">收藏</div>
+                            <div class="value">{{= $value.collectionCount}}</div>
+                        </div>
+                        <div class="views item">
+                            <div class="name">浏览量</div>
+                            <div class="value">{{= $value.viewCount}}</div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+        </script>
+<div class="right">
+    <div class="block1">
+        <div>
+            <h2 class="text-muted" style="margin-left:5%" >热门推荐
+                <span class="text-danger change" onclick="changeHot()">换一换</span></h2>
+        </div>
+        <ul style="list-style-type:disc;margin-top:5%" id="hotQuestion_content">
+            <li style="padding:10px;"><a href="" class="hotContent">
+            </a></li>
+            <li style="padding:10px;"><a href="" class="hotContent">
+            </a></li>
+            <li style="padding:10px;"><a href="" class="hotContent">
+            </a></li>
+            <li style="padding:10px;"><a href="" class="hotContent">
+            </a></li>
+            <li style="padding:10px;"><a href="" class="hotContent">
+            </a></li>
+        </ul>
+    </div>
+</div>
+
+</div>
+<div class="clearfix"></div>
+<div id="footer"></div>
+<div id ="hidden" class="wrapper" style="position: fixed;top: 0;width: 100%;height: 100%;z-index: 999;background-color: rgba(55,55,55,0.5);display: flex;align-items: center;justify-content: center;">
+    <i class="fa fa-spinner fa-spin fa-5x"></i>
+</div>
+<script src="scripts/jquery.js"></script>
+<script src="scripts/jquery.tmpl.min.js"></script>
+<script src="scripts/myPagination.js"></script>
+<script>
+    $("#header").empty().load("head.html");
+    $("#footer").empty().load("foot.html");
+</script>
+<script src="scripts/head.js"></script>
+<script src="scripts/question.js"></script>
+</body>
+<script>
+    window.onload = function () {
+        onloadQuestion1();
+        onloadHotQuestion();
+        onloadHeader();
+
+    }
+</script>
+</html>

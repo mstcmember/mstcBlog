@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <link  href="../styles/login.css" rel="stylesheet">
+    <script src="../scripts/login.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body >
+<div style="text-align: center">
+    <img src="../images/logo.jpg" style="width:120px;height:100px;margin-top: 50px;">
+</div>
+<div style="width: 100%;text-align: center;font-size: 40px;margin-top: 10px;">欢迎注册SEU-MSTC</div>
+<div class="desk-front sign-flow clearfix sign-flow-simple">
+    <div class="view view-signin" data-za-module="SignInForm"  style="display: block;margin-top:15px">
+        <div class="group-inputs">
+            <div class="email input-wrapper">
+                <input id="email" type="text" name="email" onchange="checkemail()" aria-label="邮箱" placeholder="邮箱" required="">
+            </div>
+            <div class="input-wrapper" style="margin-top: 10px">
+                <input id="password" type="password" name="password" aria-label="密码" placeholder="密码" required="">
+            </div>
+            <div class="input-wrapper" style="margin-top: 10px">
+                <input id="confirm_password" type="password" name="confirm_password" onchange="checkpassword()" aria-label="确认密码" placeholder="确认密码" required="">
+            </div>
+            <div class="email input-wrapper" style="margin-top: 10px">
+                <input id="code" type="text" name="code" aria-label="验证码" placeholder="验证码" required="">
+            </div>
+            <div class="button-wrapper command clearfix">
+                <input class="sign-button submit" id="btnSendCode" type="button" value="获取验证码" onclick="getcode()"/>
+            </div>
+        </div>
+        <input type="hidden" name="next" value="$!{next}"/>
+        <div class="button-wrapper command clearfix">
+            <button class="sign-button submit" type="button" onclick="register()">注册</button>
+        </div>
+        <div class="signin-misc-wrapper clearfix">
+            <a class="unable-login" href="login.html">返回登录</a>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+</html>

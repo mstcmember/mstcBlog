@@ -1,0 +1,52 @@
+<head>
+    <!--头部的内容-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>头部
+    </title>
+    <link href="styles/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/head.css">
+</head>
+<body>
+<div class="top-search">
+<div class="top">
+    <!--<a href="/index.html" class="logo"></a>-->
+    <div class="top-logo" ></div>
+    <input id="search-keyword" type="text" class="researchAll" placeholder="搜索感兴趣的内容">
+    <button id="search-button" type="submit" class="research_button btn btn-primary" style="font-size:small" onclick="search()">搜索
+    </button>
+    <li id="index" class="menu">
+        <a class="menu_h" href="/index.html" class="menu_h">首页</a>
+    </li>
+    <li id="news" class="menu">
+        <a href="/activity.html" class="menu_h">活动</a>
+    </li>
+    <li id="blog" class="menu">
+        <a href="/blog.html" class="menu_h">博客</a>
+    </li>
+    <li id="discuss" class="menu">
+        <a href="/question.html" class="menu_h">技术讨论</a>
+    </li>
+    <li id="program" class="menu">
+        <a href="/programming.html" class="menu_h">算法编程</a>
+    </li>
+    <li id="reg" class="reg" style="display:none">
+        <a href="/login.html" class="menu_h">注册/登陆</a>
+    </li>
+    <li id="message" class="reg" style="display:none">
+        <img id="public_jpg" class="public_jpg_style" style="display:none" src="images/res/public_logo.jpg">
+        <a id="publicName" href="" class="menu_h"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a onclick="toPersonalCenter()"><img id="jpg" class="jpg_style" src=""></a>&nbsp;
+        <a id="name" onclick="toPersonalCenter()" class="menu_h"></a>&nbsp;&nbsp;
+        <a class="menu_h" onclick="logout()">退出</a>
+    </li>
+</div><div class = "top-pic" id="top-pic"></div>
+</div>
+
+
+</body>
+<!--<script src="/scripts/jquery.js"></script>-->
+
+</html>

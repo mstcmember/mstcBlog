@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN" style="height:100%">
+<head>
+
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/editormd.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/blog.css">
+    <meta charset="UTF-8">
+    <title>programming</title>
+</head>
+<body style="height:100%">
+<div id="header" style="height:30%"></div>
+
+<div class="main clearfix">
+    <div class="pubright">
+        <h2>发布编程题</h2>
+        <div>
+            <div class="oneline">
+                <input type="text" maxlength="20" class="form-control" id="title" placeholder="请输入文章标题，不超过20个字">
+            </div>
+            <div class="content">
+                <div class="write-comment-base">
+                    <div class="comment-base lc-comment create-comment ">
+                        <div class="comment-avatar">
+                            <div class="avatar simple-avatar__1nLM hover-effect__2WOZ">
+                                <img id="comment-avatar-headUrl" class="simp-avatar__mRN_" src="" alt="" data-has-link="false" style="height: 50px; width: 50px;">
+                            </div>
+                        </div>
+                        <!--为发表评论的界面-->
+                        <div class="comment-panel reply-panel">
+                            <div id="layout">
+                                <div id="test-editormd">
+                                    <textarea id="comment-content" style="display:online;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<textarea style="width:100%;height:300px" id="content" name="content"></textarea>-->
+            </div>
+            <div class="one-line">
+                <span>关键词（最多三个)</span>
+                <!--<div class="form-group">-->
+                <!--<input type="text" class="form-control"  placeholder="关键词1">-->
+                <!--</div>-->
+                <div class="form-inline">
+                    <input type="text" class="form-control" id="keyWord1" placeholder="关键词1">
+                    <input type="text" class="form-control" id="keyWord2" placeholder="关键词2">
+                    <input type="text" class="form-control" id="keyWord3" placeholder="关键词3">
+                </div>
+            </div>
+            <div class="one-line">
+                <span>技术帖类型</span>
+                <select id="blog_flag" class="form-control" style="width:120px; font-size: 16px">
+                    <option value="1">剑指offer</option>
+                    <option value="2">LeetCode</option>
+                    <option value="3">其他</option>
+                </select>
+            </div>
+            <div class="one-line">
+                <button type="button" class="btn btn-primary" onclick="publicProgramming()">发布编程题</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script src="scripts/head.js"></script>
+<script src="scripts/programming.js"></script>
+<script src="scripts/jquery.js"></script>
+<script src="scripts/bootstrap.min.js"></script>
+<script src="scripts/jquery.tmpl.min.js"></script>
+<script src="scripts/editormd.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#header").empty().load("head.html");
+    });
+    window.onload = function () {
+        onloadHeader();}
+</script>
+
+<script type="text/javascript">
+    var testEditor;
+
+    $(function () {
+        var widgets = [];
+
+        testEditor = editormd("test-editormd", {
+            width: "100%",
+            height: 400,
+            path: 'editor/lib/',
+            disabledKeyMaps: [
+                "Ctrl-B", "F11", "F10"  // disable some default keyboard shortcuts handle
+            ],
+
+            saveHTMLToTextarea:true,
+            //上传图片相关配置
+            imageUpload:true,
+            imageFormats:["jpg","jpeg","gif","png","bmp","webp","JPG"],
+            imageUploadURL:"../programming/uploadImage",
+            watch:true,
+
+            onchange: function () {
+                $("#test").remove();
+                var cm = this.cm;
+                var cursor = cm.getCursor();
+
+                //cm.replaceSelection("@");
+
+                // widgets.push(cm.addWidget({line : cursor.line, ch : cursor.ch}, $("<p style='z-index:100000;background:red;color:#fff;padding:5px;' id='test'></p>")[0], true));
+                console.log(cm.getCursor(), cm.getLine(cursor.line), cm.getLineTokens(cursor.line));
+            },
+            onload: function () {
+                var keyMap = {
+                    "Ctrl-S": function (cm) {
+                        alert("Ctrl+S");
+                        //return false;
+                    },
+                    "Ctrl-A": function (cm) { // default Ctrl-A selectAll
+                        // custom
+                        alert("Ctrl+A");
+                        cm.execCommand("selectAll");
+                    },
+                    //"Shift-2" : function(cm){
+                    //}
+                };
+
+                this.cm.on("keyup", function (cm) {
+                    //$("#test").remove();
+                });
+
+                // setting signle key
+                var keyMap2 = {
+                    "Ctrl-T": function (cm) {
+                        alert("Ctrl+T");
+                    }
+                };
+
+                this.addKeyMap(keyMap);
+                this.addKeyMap(keyMap2);
+                this.removeKeyMap(keyMap2);  // remove signle key
+            }
+        });
+    });
+
+</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link  href="styles/login.css" rel="stylesheet">
+    <script src="scripts/login.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body >
+<div style="text-align: center">
+    <img src="images/logo.jpg" style="width:120px;height:100px;margin-top: 80px;">
+</div>
+<div style="width: 100%;text-align: center;font-size: 50px;margin-top: 10px;">欢迎登录SEU-MSTC</div>
+<div class="desk-front sign-flow clearfix sign-flow-simple">
+    <div class="view view-signin" data-za-module="SignInForm"  style="display: block;margin-top:30px">
+        <div class="group-inputs">
+            <div class="email input-wrapper">
+                <input id="email" type="text" name="email" aria-label="注册邮箱" placeholder="注册邮箱" required="">
+            </div>
+            <div class="input-wrapper" style="margin-top: 15px">
+                <input id="password" type="password" name="password" aria-label="密码" placeholder="密码" required="">
+            </div>
+        </div>
+        <input type="hidden" name="next" value="$!{next}"/>
+        <div class="button-wrapper command clearfix">
+            <button class="sign-button submit" type="button" onclick="login()">登录</button>
+        </div>
+        <div class="signin-misc-wrapper clearfix">
+            <label class="remember-me">
+                <input type="checkbox" id="rememberme" name="rememberme" checked="" value="true"> 记住我
+            </label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="find-password" href="retrievePassword.html">忘记密码?</a>
+            <a class="unable-login" href="register.html">未注册?</a>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+</html>

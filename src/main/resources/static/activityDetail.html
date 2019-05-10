@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%">
+<head>
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/blogDetail.css">
+    <link rel="stylesheet" href="styles/editormd.min.css">
+    <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+    <meta charset="UTF-8">
+    <title>活动</title>
+</head>
+<body style="height:100%">
+<div id="header" style="height:30%"></div>
+<div class="left">
+</div>
+<div id="reply_display" class="reply_style" align="center" style="display:none">
+    <div>
+        <textarea rows="5" cols="20" type="text" style="float:left;resize:none;overflow-y:scroll;" class="form-control" id="reply_content"></textarea>
+    </div>
+    <br><br>
+    <div style="margin-top:9%">
+        <button class="btn btn-primary" onclick="replyBlog()">回复
+        </button>
+        <button class="btn btn-primary" style="margin-left:2%"onclick="replyNone()">取消
+        </button>
+    </div>
+</div>
+<div class="main">
+    <div class="middle" id="middle-content" style="">
+        <div class="question-title clearfix">
+            <div class="row">
+                <div class="col-lg-4 col-md-5 col-sm-6
+              col-sm-push-6 col-md-push-7 col-lg-push-8" id="widgets">
+                    <div>
+                        <button type="button" id="like" class="btn btn-default btn-lg" onclick="activityLike(this.id)">
+                            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>&nbsp;&nbsp;<span
+                                id="likeCount"></span>
+                        </button>
+                        <button type="button" id="dislike" class="btn btn-default btn-lg" onclick="activityLike(this.id)">
+                            <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                        </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <!--<button type="button" class="btn btn-default btn-lg" onclick="addBlogCollection()">-->
+                            <!--<span id="isCollection" class="glyphicon glyphicon-heart-empty" aria-hidden="true">收藏</span>-->
+                        <!--</button>-->
+                    </div>
+                </div>
+
+                <div class="col-lg-8 col-md-7 col-sm-6 col-sm-pull-6 col-md-pull-5 col-lg-pull-4"><h3
+                        id="question-detail-title"></h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="author-time">
+            <div class="public-time"><p id="question-detail-time"></p></div>
+            <div class="user-info">
+                <div class="user-headerImg"><a id="public-author" href="" target="_blank"><img
+                        id="question-author-headUrl"
+                        class=""
+                        src="" alt=""
+                        data-has-link="true" style="height: 20px; width: 20px;"></a>
+                </div>
+                <div class="username" title=""><a href="" id="question-author-name" target="_blank"></a></div>
+
+            </div>
+        </div>
+
+        <div class="question-content">
+            <div id="blog_content">
+                <textarea id="content_detail" style="display:none;"></textarea>
+            </div>
+        </div>
+
+        <button id="deleteBlog" type="button" class="btn btn-danger btn-lg"
+                style="padding:0; height: 35px; width: 60px; display:none;margin-bottom:10px" onclick="deleteActivity(0)">
+            <span aria-hidden="true" style="font-size: small">删除</span>
+        </button>
+        <button id="IsTopBlog" type="button" class="btn btn-success  btn-lg"
+                style="padding:0; height: 35px; width: 60px;display:none;margin-bottom:10px;margin-left:10px" onclick="IsTopActivity()">
+            <span aria-hidden="true" style="font-size: small" id="isTopText">置顶</span>
+        </button>
+
+        <div class="discuss-comment-section">
+
+            <div class="comment-title">
+                <!--<div class="dropdown clearfix comment-title-right">-->
+                    <!--<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2"-->
+                            <!--data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                        <!--Sort By-->
+                        <!--<span class="caret"></span>-->
+                    <!--</button>-->
+                    <!--<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">-->
+                        <!--<li><a href="#">点赞最多</a></li>-->
+                        <!--<li><a href="#">最新发布</a></li>-->
+                        <!--<li><a href="#">总和排序</a></li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+                <div class="title">评论:&nbsp;<div id="comment-count" class="label label-info round"
+                                                 style="padding-bottom: 0.2em;">
+                </div>
+                </div>
+            </div>
+
+
+            <div class="write-comment-base">
+                <div class="comment-base lc-comment create-comment ">
+                    <div class="comment-avatar">
+                        <div class="avatar simple-avatar__1nLM hover-effect__2WOZ">
+                            <img id="comment-avatar-headUrl" class="simp-avatar__mRN_" src="" alt=""
+                                 data-has-link="false" style="height: 50px; width: 50px;">
+                        </div>
+                    </div>
+                    <!--为发表评论的界面-->
+                    <div class="comment-panel reply-panel">
+                        <div id="layout">
+                            <div id="test-editormd">
+                            <textarea id="comment-content"></textarea>
+                        </div>
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="publishComment()" style="float:right;">
+                            发表评论
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <script id="each_activity_comment" type="text/x-jquery-tmpl">
+            {{each activityComment}}
+            <div>
+                <div id="comment-{{= $value.id}}" class="comment-base lc-comment ">
+                    <div class="comment-avatar">
+                        <div class="avatar simple-avatar__1nLM hover-effect__2WOZ"><a href="personalCenter.html?userId={{= $value.userId}}" target="_blank"><img
+                                class="simp-avatar__mRN_"
+                                src="{{= $value.headUrl}}"
+                                alt="{{= $value.nickname}}" data-has-link="true" style="height: 50px; width: 50px;"></a>
+                        </div>
+                    </div>
+                    <div class="comment-replies-wrapper">
+                        <div class="comment-panel ">
+                            <div class="comment-header">
+                                <div class="title-toolbar">
+                                    <div class="comment-info">
+                                        <div class="username" style="float:left;"><a href="personalCenter.html?userId={{= $value.userId}}" target="_blank">{{=
+                                            $value.nickname}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                        </div>
+
+                                        <div class="date" title="{{= $value.createTime}}"><i
+                                                class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{= $value.createTime}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comment-body no-show-more shrink-size">
+
+                                <div id="testEditorMdview{{= $value.id}}">
+                                    <textarea id="appendTest{{= $value.id}}" style="display:none;"></textarea>
+                                </div>
+
+                                <div class="read-more" data-status="exited">
+                                    <div class="trans"></div>
+                                </div>
+                            </div>
+                            <div class="comment-footer">
+                                <div class="comment-tool">
+                                    {{if hostHolderId == $value.userId || flag == 2}}
+                                    <a href="javascript:void(0)" onclick="deleteActivity(1,'{{= $value.id}}')"><span
+                                            class="reply-btn-base">
+                                        <span class="reply-btn"><span class="reply-btn-text">删除</span>
+                                        </span>
+                                    </span></a>
+                                    {{/if}}
+                                    <span class="comment-separator"></span>
+                                    <a href="javascript:void(0)" onclick="replyDisplay({{= $value.id}},'{{= $value.nickname}}')"><span
+                                            class="reply-btn-base">
+                                        <span class="reply-btn"><i class="fa fa-reply reply-btn-icon discuss-bottom-bar-icon"></i>
+                                        <span class="reply-btn-text">回复</span>
+                                        </span>
+                                    </span></a>
+
+                                    {{if $value.replyCount!=0}}
+                                    <span id="displayReply-{{= $value.id}}" class="reply-btn-base" style="float:right;margin-right:50px" onclick="readQuestionCommentReply(this.id)"><span
+                                    class="reply-btn"><i class="fa fa-chevron-down"></i><span
+                                    class="reply-btn-text">阅读{{= $value.replyCount}}条回复</span></span></span>
+                                    {{/if}}
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="blogComment{{= $value.id}}-reply" style="display:none;margin-left:60px">
+                    {{each(i,blogCommentReply) $value.activityCommentReplyList}}
+                    <div>
+                        <div id="comment-reply-{{= blogCommentReply.id}}" class="comment-base lc-comment ">
+                            <div class="comment-avatar">
+                                <div class="avatar simple-avatar__1nLM hover-effect__2WOZ"><a href="personalCenter.html?userId={{= $value.userId}}" target="_blank"><img class="simp-avatar__mRN_"
+                                        src="{{= blogCommentReply.headUrl}}" alt="{{= blogCommentReply.nickname}}" data-has-link="true"
+                                        style="height: 50px; width: 50px;"></a>
+                                </div>
+                            </div>
+
+                            <div class="comment-replies-wrapper">
+                                <div class="comment-panel ">
+
+                                    <div class="comment-header">
+                                        <div class="title-toolbar">
+                                            <div class="comment-info">
+                                                <div class="username" style="float:left;">
+                                                    <a href="personalCenter.html?userId={{= $value.userId}}" target="_blank">{{= blogCommentReply.nickname}}&nbsp;</a>
+                                                    {{if blogCommentReply.toNickname != blogCommentReply.nickname}}
+                                                    <span>回复&nbsp;</span>
+                                                    <a href="" target="_blank">{{= blogCommentReply.toNickname}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                                    {{/if}}
+                                                </div>
+                                                <div class="date" title="{{= blogCommentReply.createTime}}"><i
+                                                        class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; {{=
+                                                    blogCommentReply.createTime}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comment-body no-show-more shrink-size">
+
+                                        <div id="testEditorMdviewReply{{= blogCommentReply.id}}">
+                                        <textarea id="appendTestReply{{= blogCommentReply.id}}"
+                                                  style="display:none;"></textarea>
+                                        </div>
+
+                                        <div class="read-more" data-status="exited">
+                                            <div class="trans"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comment-footer">
+                                        <div class="comment-tool">
+                                            {{if hostHolderId == blogCommentReply.userId || flag == 2}}
+                                            <a href="javascript:void(0)" target="view_window" onclick="deleteActivity(1,'{{= blogCommentReply.id}}')">
+                                                <span class="reply-btn-base">
+                                                <span class="reply-btn"><span class="reply-btn-text">删除</span>
+                                                </span></span></a>
+                                            {{/if}}
+                                            <span class="comment-separator"></span>
+                                            <a href="javascript:void(0)" target="view_window" onclick="replyDiscussDisplay({{= $value.id}},{{= blogCommentReply.id}},'{{= blogCommentReply.nickname}}')">
+
+                                                <span class="reply-btn-base">
+                                                <span class="reply-btn"><i class="fa fa-reply reply-btn-icon discuss-bottom-bar-icon"></i>
+                                                    <span class="reply-btn-text">回复</span>
+                                                </span></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                    <span id="concealDisplayReply-{{= $value.id}}" class="reply-btn-base"
+                          style="float:left;margin-left:50%;" onclick="ConcealReadQuestionCommentReply(this.id)"><span
+                            class="reply-btn"><i
+                            class="fa fa-chevron-up"></i><span
+                            class="reply-btn-text">收起{{= $value.replyCount}}条回复</span></span></span>
+                </div>
+
+            </div>
+            {{/each}}
+
+            </script>
+
+            <div id="blog-comment-list">
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div class="right">
+    </div>
+
+</div>
+<div class="clearfix"></div>
+<div id="footer"></div>
+<div id ="hidden" class="wrapper" style="position: fixed;top: 0;width: 100%;height: 100%;z-index: 999;background-color: rgba(55,55,55,0.5);display: flex;align-items: center;justify-content: center;">
+    <i class="fa fa-spinner fa-spin fa-5x"></i>
+</div>
+<script src="scripts/jquery.js"></script>
+<script src="scripts/bootstrap.min.js"></script>
+<script src="scripts/jquery.tmpl.min.js"></script>
+<script src="scripts/editormd.min.js"></script>
+<script>
+    $("#header").empty().load("head.html");
+    //$("#footer").empty().load("foot.html");
+</script>
+<script src="scripts/head.js"></script>
+<script src="scripts/activity.js"></script>
+
+
+</body>
+<script>
+    window.onload = function () {
+        onloadHeader();
+        onloadActivityDetail();
+        onloadActivityComment();
+    }
+</script>
+
+<script type="text/javascript">
+    var testEditor;
+    $(function () {
+        var widgets = [];
+        testEditor = editormd("test-editormd", {
+            width: "100%",
+            height: 400,
+            path: 'editor/lib/',
+            disabledKeyMaps: [
+                "Ctrl-B", "F11", "F10"  // disable some default keyboard shortcuts handle
+            ],
+            saveHTMLToTextarea:true,
+            //上传图片相关配置
+            imageUpload:true,
+            imageFormats:["jpg","jpeg","gif","png","bmp","webp","JPG"],
+            imageUploadURL:"../blog/uploadImage",
+            watch:true,
+            onchange: function () {
+                $("#test").remove();
+                var cm = this.cm;
+                var cursor = cm.getCursor();
+                console.log(cm.getCursor(), cm.getLine(cursor.line), cm.getLineTokens(cursor.line));
+            },
+            onload: function () {
+                var keyMap = {
+                    "Ctrl-S": function (cm) {
+                        alert("Ctrl+S");
+                        //return false;
+                    },
+                    "Ctrl-A": function (cm) { // default Ctrl-A selectAll
+                        // custom
+                        alert("Ctrl+A");
+                        cm.execCommand("selectAll");
+                    },
+                    //"Shift-2" : function(cm){
+                    //}
+                };
+
+                this.cm.on("keyup", function (cm) {
+                    //$("#test").remove();
+                });
+
+                // setting signle key
+                var keyMap2 = {
+                    "Ctrl-T": function (cm) {
+                        alert("Ctrl+T");
+                    }
+                };
+
+                this.addKeyMap(keyMap);
+                this.addKeyMap(keyMap2);
+                this.removeKeyMap(keyMap2);  // remove signle key
+            }
+        });
+    });
+
+</script>
+
+<script>
+    window.onscroll = function () {
+        setTimeout(function () {
+            if (timeoutInt != undefined) {
+                window.clearTimeout(timeoutInt);
+            }
+            timeoutInt = window.setTimeout(function () {
+                //监听事件内容
+                if(getScrollHeight() == getDocumentTop() + getWindowHeight()){
+                    //当滚动条到底时,这里是触发内容
+                    //异步请求数据,局部刷新dom
+                    ajax_function()
+                }
+            }, 105);
+        }, 100);
+    }
+</script>
+</html>
+
