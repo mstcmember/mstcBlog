@@ -17,6 +17,7 @@
 
     <link rel="stylesheet" href="styles/myPagination.css">
     <script src="scripts/myPagination.js"></script>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
 
 
     <meta charset="UTF-8">
@@ -581,6 +582,25 @@
                                 <span id="personalCenter-pai-ming"></span>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-xs-8 col-xs-offset-1">
+                        <table class="table table-hover">
+                            <caption>贡献度排行榜</caption>
+                            <thead>
+                            <tr>
+                                <th>贡献度排名</th>
+                                <th>用户昵称</th>
+                                <th>贡献度</th>
+                            </tr>
+                            </thead>
+                            <tbody id="vue_leaderboard">
+                            <tr v-for="site in sites">
+                                <td v-text="site.scoreRanking"></td>
+                                <td v-text="site.nickname"></td>
+                                <td v-text="site.rankScore"></td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
