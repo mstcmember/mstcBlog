@@ -658,3 +658,32 @@ function onloadCollectionShow(type,userId) {
 function turnPage(id) {
     window.location = "personalCenter.html?userId="+userId+"&&personalCenterId="+id;
 }
+
+var vm_leaderboard = new Vue({
+    el: '#vue_leaderboard',
+    data: {
+        sites: [],
+    },
+    created: function () {
+        //为了在内部函数能使用外部函数的this对象，要给它赋值了一个名叫self的变量。
+        var self = this;
+        var json = {};
+        json.rankNum = 10;
+        var data = JSON.stringify(json);
+        $.ajax({
+            url: '/user/scoreLeaderboard',
+            type: 'post',
+            data: data,
+            contentType: "application/json"
+        }).then(function (res) {
+            //console.log(res);
+            //把从json获取的数据赋值给数组
+            self.sites = res.dataList;
+            for(var i=0;i<self.sites.length;i++){
+                self.sites[i].scoreRanking=i+1;
+            }//scoreRanking
+        }).fail(function () {
+            console.log('贡献度排行榜AJAX失败');
+        })
+    }
+});

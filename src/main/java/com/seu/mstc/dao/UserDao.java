@@ -4,6 +4,8 @@ import com.seu.mstc.model.User;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 
 @Component
 @Mapper
@@ -58,5 +60,9 @@ public interface UserDao {
 
     @Update({"update ",TABLE_NAME, " set rank_score=#{rankScore} where id=#{id}"})
     int updateUserScore(User user);
+
+    @Select({"select id,nickname,rank_score,email,head_url from ", TABLE_NAME, " order by rank_score desc LIMIT #{rankNum}"})
+        //SELECT sum from ncre2c order by sum desc LIMIT 10
+    List<User> getScoreLeaderboard(@Param("rankNum")int rankNum );
 
 }

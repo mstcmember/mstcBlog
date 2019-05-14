@@ -27,5 +27,6 @@ public interface UserService {
     public ResultInfo getUserAllPost(Integer type,Integer userId,Integer start,Integer num);//获取某个用户发布的全部信息
 
     public ResultInfo getUserAllCollection(Integer type,Integer userId,Integer start,Integer num);//获取某个用户收藏的全部信息
+    public ResultInfo getScoreLeaderboard(Integer rankNum);
 
 }

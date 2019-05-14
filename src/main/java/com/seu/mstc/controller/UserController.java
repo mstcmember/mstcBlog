@@ -375,6 +375,22 @@ public class UserController {
         return result;
     }
 
+    //查询Top X 的贡献度排行榜学习 X取 int rankNum
+    @RequestMapping(value="/scoreLeaderboard",method = RequestMethod.POST)
+    public ResultInfo scoreLeaderboard(@RequestBody JSONObject jsonObject,HttpServletResponse response){
+        ResultInfo result=null;
+        try {
+            int rankNum=jsonObject.getInteger("rankNum");;//需要查询的数量
+            // int rankNum = 10;
+            result = userService.getScoreLeaderboard(rankNum);
+            //result=userService.getUserAllCollection(type,userId,start,num);
+        }catch (Exception e){
+            logger.error("查询排行榜时服务器发生异常"+e.getMessage());
+            e.printStackTrace();
+        }
+        return result;
+    }
+
 
 }
 

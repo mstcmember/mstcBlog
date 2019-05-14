@@ -483,4 +483,17 @@ public class UserServiceImpl implements UserService {
 
         return result;
     }
+
+    public ResultInfo getScoreLeaderboard(Integer rankNum) {
+        ResultInfo result = new ResultInfo();
+        List<Object> resultList = new ArrayList<>();
+        List<User> leaderboardUsers = userDao.getScoreLeaderboard(rankNum);
+        for (int i = 0; i < leaderboardUsers.size(); i++) {
+            resultList.add(leaderboardUsers.get(i));
+        }
+        result.setDataList(resultList);
+        result.setStatus(200);
+        return result;
+    }
+
 }
