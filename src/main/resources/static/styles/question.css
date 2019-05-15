@@ -1,0 +1,242 @@
+.main {
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    margin-top:10px;
+}
+.middle{
+    float: left;
+    margin-left:1%;
+    width: 56%;
+    height:100%;
+    background-color: #ffffff;
+}
+
+
+.right{
+    float: right;
+    margin: 2%;
+    width: 20%;
+    height:80%;
+    background-color: #ffffff;
+}
+
+.block1{
+    border-top: 3px solid #e8ecee;
+    border-bottom: 3px solid #e8ecee;
+    padding: 20px 0;
+    background-color: #ffffff;
+}
+
+.hotContent{
+    padding: 10px,0,10px,0;
+    height:200px;
+    margin-top:5%;
+    font-size: large;
+}
+.change{
+    top:5px;
+    float: right;
+    width: 25%;
+    cursor: pointer;
+    font-size: large;
+}
+.block2{
+    margin-top:5%;
+    margin-right:2%;
+    width: 80%;
+    height:30%;
+    background-color: #ffffff;
+}
+
+
+
+.pubright{
+    background-color:#eceaea;
+    width: 60%;
+    margin-top: 5%;
+    margin-right: 20%;
+    margin-left: 20%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 10%;
+}
+
+.pubright h2 {
+    font-size: 2.4em;
+    width: 100%;
+    line-height: 50px;
+    text-indent: 1em;
+    margin-top: 0;
+    margin-bottom: 2px;
+}
+.right{
+    float: right;
+    margin-right:2%;
+    width: 20%;
+    height:80%;
+    background-color: #ffffff;
+}
+
+.left{
+    background-color:#D3D3D3;
+    float: left;
+    width: 14%;
+    margin: 2%;
+    height:100%;
+}
+
+div.one-line {
+    margin: 15px 0;
+}
+
+div.one-line span{
+    display: inline-block;
+    width: 160px;
+    text-align: left;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #454545;
+}
+
+div.one-line input {
+    width: 22em;
+    line-height: 30px;
+    border: 1px solid #d3c9ce;
+    border-radius: 3px;
+}
+
+div.one-line button {
+    width: 8em;
+    text-align: center;
+    line-height: 30px;
+    background-color: #18a689;
+}
+.content {
+    /*border: 1px solid #777;*/
+    width: 100%;
+    margin-top: 20px;
+    text-align: left;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+
+
+
+.discuss-list-base {
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+.tab-content, .tab-content>*:first-child, .tab-content .list-group-item:first-child, .tab-content .panel:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: 0;
+}
+
+
+.discuss-list-base .discuss-list {
+    margin: auto;
+}
+
+.discuss-list-base .discuss-item {
+    position: relative;
+    padding: 15px 0 15px 15px;
+    border-bottom: 1px solid #dddddd;
+    background: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transition: .5s all;
+    -o-transition: .5s all;
+    transition: .5s all;
+}
+
+.discuss-list-base {
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+
+.discuss-list-base .user-avatar {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 30px;
+    flex: 0 0 30px;
+    height: 30px;
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+.simple-avatar__1nLM {
+    display: inline-block;
+}
+
+.discuss-list-base a {
+    color: inherit;
+    text-decoration: none;
+}
+
+element.style {
+    height: 30px;
+    width: 30px;
+}
+
+.discuss-list-base .info {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 0%;
+    flex: 1 1 0%;
+    position: relative;
+    min-width: 0px;
+}
+
+.discuss-list-base .info .title {
+    margin-right: 80px;
+    font-weight: 400;
+    font-size: 16px;
+    max-width: 100%;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    /*white-space: pre;*/
+    white-space:nowrap;
+    color: black;
+}
+
+.discuss-list-base .info .updates {
+    margin-right: 15px;
+    margin-top: -2px;
+    font-size: 10px;
+    color: grey;
+}
+
+.discuss-list-base .stats {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-align: center;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+}
+
+.discuss-list-base .stats .item {
+    width: 80px;
+    display: inline-block;
+    padding: 0;
+}
+
+.discuss-list-base .stats .item:not(:last-child) {
+    margin-right: -1px;
+    border-right: 1px dotted #dddddd;
+}
+
+.discuss-list-base .info .tab-content {
+    margin-right: 80px;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    /*white-space: pre;*/
+    white-space:nowrap;
+    color: black;
+}

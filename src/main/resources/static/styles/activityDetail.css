@@ -1,0 +1,266 @@
+.main {
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    margin-top:10px;
+}
+
+.middle{
+    float: left;
+    margin-left:1%;
+    width: 56%;
+    height:100%;
+    background-color: #ffffff;
+}
+.right{
+    float: right;
+    margin-right:2%;
+    width: 20%;
+    height:80%;
+}
+
+.left{
+    background-color:#ffffff;
+    float: left;
+    width: 14%;
+    margin: 2%;
+    height:100%;
+}
+
+.reply_style{
+    padding: 15px;
+    margin: 10px 0;
+    background-color:#e0dada;
+    position: fixed;
+    left: 25%;
+    top: 40%;
+    width:50%;
+
+
+    /* align: center; */
+    /*初始状态都是隐藏*/
+    opacity: 1;
+    z-index: 1000;
+
+}
+
+.question-title {
+    padding-bottom: 10px;
+    margin-top: 1.1em;
+}
+
+.question-title .row {
+    min-height: 38px;
+}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+#widgets {
+    text-align: right;
+}
+
+.btn-lg {
+    padding: 10px 16px;
+    font-size: 10px;
+    line-height: 1.33;
+    border-radius: 6px;
+}
+
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+.question-content{
+    width:90%;
+    white-space:pre-wrap;
+    word-break:break-all;
+}
+
+.public-time{
+    float:left;
+}
+
+.user-info{
+    float:right;
+}
+
+.discuss-comment-section .comment-title {
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+.discuss-comment-section .comment-title .title {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.comment-title-right{
+    float:right;
+}
+
+
+.lc-comment.comment-base {
+    padding-left: 20px;
+    padding-right: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.lc-comment.comment-base .comment-avatar {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50px;
+    flex: 0 0 50px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.lc-comment.comment-base .comment-panel.reply-panel {
+    width: 100%;
+    background: #fafafa;
+    /*-webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.075) inset;*/
+    /*box-shadow: 0 1px 1px rgba(0,0,0,0.075) inset;*/
+    /*border: #dddddd 1px solid;*/
+    padding: 24px 0;
+    border-radius: 5px;
+    min-width: 0;
+}
+
+.write-comment-base .create-comment .comment-panel.reply-panel {
+    background: white !important;
+    padding: 0 !important;
+}
+
+.lc-comment.comment-base .comment-panel {
+    width: 100%;
+    background: white;
+    margin: -5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.write-comment-base .create-comment .comment-panel.reply-panel .comment-editor {
+    padding: 10px 10px 5px 10px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.mentions-input .mentions-input__input {
+    overflow: auto !important;
+    width: 100%;
+    resize: none;
+    border: none;
+    background: none;
+    outline: none;
+    max-height: 300px;
+}
+
+.lc-comment.comment-base {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.lc-comment.comment-base {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.lc-comment .comment-replies-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.lc-comment.comment-base .comment-panel {
+    width: 100%;
+    background: white;
+    margin: -5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.lc-comment .comment-info {
+    margin: 0px 5px;
+    width: 100%;
+    display: inline-block;
+}
+
+.lc-comment .comment-info .username {
+    display: inline-block;
+}
+.lc-comment .comment-info .date, .lc-comment .comment-info .status {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 12px;
+    color: #afafaf;
+}
+
+.lc-comment .comment-body {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    position: relative;
+}
+
+.lc-comment .comment-tool {
+    padding-left: 5px;
+}
+.lc-comment .comment-tool .vote {
+    display: inline-block;
+    font-weight: 600;
+    color: #afafaf;
+}
+.lc-comment .comment-tool .comment-separator {
+    border-left: #afafaf 1px dotted;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.lc-comment .comment-tool .reply-btn, .lc-comment .comment-tool .share-btn {
+    color: #afafaf;
+    font-size: 12px;
+    cursor: pointer;
+}
+.lc-comment .comment-tool .reply-btn .discuss-bottom-bar-icon, .lc-comment .comment-tool .share-btn .discuss-bottom-bar-icon {
+    margin-right: 5px;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.lc-comment .comment-tool .reply-btn, .lc-comment .comment-tool .share-btn {
+    color: #afafaf;
+    font-size: 12px;
+    cursor: pointer;
+}
+.lc-comment .comment-tool .reply-btn .discuss-bottom-bar-icon, .lc-comment .comment-tool .share-btn .discuss-bottom-bar-icon {
+    margin-right: 5px;
+}

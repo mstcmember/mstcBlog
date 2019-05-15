@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/questionDetail.css">
+    <link rel="stylesheet" href="styles/editormd.min.css">
+    <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon"/>
+    <meta charset="UTF-8">
+    <title>技术讨论贴</title>
+</head>
+<body>
+<div id="header" style="height:30%"></div>
+<div class="left">
+
+</div>
+
+
+<div class="main">
+
+
+    <div class="middle" id="middle-content" style="display: block">
+
+
+
+
+
+
+
+
+        <div class="discuss-comment-section" style="margin-top: 50px">
+
+
+
+            <div class="write-comment-base">
+                <div class="comment-base lc-comment create-comment ">
+                    <div class="comment-panel reply-panel">
+                        <div id="layout">
+                            <div id="test-editormd">
+                                <textarea id="comment-content" style="display:none;"></textarea>
+                            </div>
+                        </div>
+                        <!--<button type="button" class="btn btn-primary"  href="" style="float:right;">-->
+                            <!--返回-->
+                        <!--</button>&nbsp;&nbsp;&nbsp;&nbsp;-->
+                        <button type="button" class="btn btn-primary" onclick="publishReply()" style="float:right;">
+                            发表回复
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+</body>
+<script src="scripts/head.js"></script>
+<script src="scripts/question.js"></script>
+<script src="scripts/jquery.js"></script>
+<script src="scripts/bootstrap.min.js"></script>
+<script src="scripts/jquery.tmpl.min.js"></script>
+<script src="scripts/editormd.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $("#header").empty().load("header.html");
+    });
+    window.onload = function () {
+        onloadHeader();
+    }
+</script>
+
+<script type="text/javascript">
+    var testEditor;
+
+    $(function () {
+        var widgets = [];
+
+        testEditor = editormd("test-editormd", {
+            width: "100%",
+            height: 400,
+            path: 'editor/lib/',
+            disabledKeyMaps: [
+                "Ctrl-B", "F11", "F10"  // disable some default keyboard shortcuts handle
+            ],
+            //上传图片相关配置
+            imageUpload:true,
+            imageFormats:["jpg","jpeg","gif","png","bmp","webp"],
+            imageUploadURL:"../question/uploadImage",
+            watch:true,
+            onchange: function () {
+                $("#test").remove();
+                var cm = this.cm;
+                var cursor = cm.getCursor();
+
+                console.log(cm.getCursor(), cm.getLine(cursor.line), cm.getLineTokens(cursor.line));
+            },
+            onload: function () {
+                var keyMap = {
+                    "Ctrl-S": function (cm) {
+                        alert("Ctrl+S");
+                        //return false;
+                    },
+                    "Ctrl-A": function (cm) { // default Ctrl-A selectAll
+                        // custom
+                        alert("Ctrl+A");
+                        cm.execCommand("selectAll");
+                    },
+                    //"Shift-2" : function(cm){
+                    //}
+                };
+
+                this.cm.on("keyup", function (cm) {
+                    //$("#test").remove();
+                });
+
+                // setting signle key
+                var keyMap2 = {
+                    "Ctrl-T": function (cm) {
+                        alert("Ctrl+T");
+                    }
+                };
+
+                this.addKeyMap(keyMap);
+                this.addKeyMap(keyMap2);
+                this.removeKeyMap(keyMap2);  // remove signle key
+            }
+        });
+    });
+</script>
+
+</html>

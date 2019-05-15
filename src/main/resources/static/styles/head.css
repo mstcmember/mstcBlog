@@ -1,0 +1,112 @@
+.top {
+    width: 100%;
+    height: 25%;
+    background-color:transparent;
+}
+ .logo {
+        float:left;
+        width: 20%;
+        height: 50px;
+        background-image: url(../images/res/long_logo.jpg);
+        background-repeat: no-repeat;
+        text-indent: -9999px;
+      }
+ .research_button {
+        float:left;
+        margin-left:1px;
+        margin-top:10px;
+        width: 4%;
+        line-height: 17px;
+ }
+ .researchAll {
+    margin-left:2%;
+    margin-top:10px;
+    float:left;
+    padding: 7px 30px 7px 7px;
+    width: 17%;
+    color: #49525c;
+    font-size: 14px;
+    line-height: 17px;
+    background-color: #e1eaf2;
+    border: 1px solid #045bb2;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.2), 0 1px 0 rgba(255,255,255,.1);
+}
+#index {
+    margin-left:1%;
+    width: 5%;
+}
+.menu {
+    margin-left:1%;
+    float: left;
+    width: 5%;
+    height: 50px;
+    background-color:transparent;
+    font-size: 15px;
+    font-weight:bold;
+    overflow-y: hidden;
+    cursor: hand;
+    transition: height 0.2s ease-in-out;
+    -moz-transition: height 0.2s ease-in-out;
+    -webkit-transition: height 0.2s ease-in-out;
+    -o-transition: height 0.2s ease-in-out;
+}
+/*.menu:hover {
+    background-color: #CDC9C9;
+}*/
+.menu_h {
+    text-decoration: none;
+    color: #000000;
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+}
+
+.reg {
+    float: right;
+    width:25%;
+    font-size: 13px;
+    font-weight:bold;
+    overflow-y: hidden;
+}
+
+.jpg_style {
+    height: 45px;
+    margin-right:2%;
+}
+
+.public_jpg_style {
+    height: 25px;
+    margin-right:1%;
+}
+
+.top-search{
+    width: 95%;
+    height: 100%;
+    /*background-image:url("../images/res/top-pic.jpg");*/
+    /*background-repeat: no-repeat;*/
+    background-size:100% 100%;
+    -moz-background-size:100% 100%;
+    margin: 0 auto;
+}
+
+.top-pic{
+    width: 99%;
+    height: 75%;
+    background-image:url("../images/res/top-pic.jpg");
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    -moz-background-size:100% 100%;
+    margin: 0 auto;
+}
+
+.top-logo{
+    width: 150px;
+    height: 30px;
+    background-image:url("../images/res/top-logo.png");
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    -moz-background-size:100% 100%;
+    float: left;
+    margin: 10px 0 0 0 ;
+}

@@ -1,0 +1,97 @@
+<!--<!DOCTYPE html>-->
+<html lang="en" style="overflow-x: hidden;">
+<head>
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/index1.css">
+    <link rel="stylesheet" href="styles/index/shutter.css">
+    <link rel="stylesheet" href="styles/index/style.css">
+    <meta charset="UTF-8">
+    <title>主页</title>
+</head>
+<body>
+<div id="header" style="height:0%;margin-bottom:1%"></div>
+<div class="clearfix">
+<div class="shutter" id="shutter" style="margin-top: 50px;width: 80%">
+    <div class="shutter-img" id="shutter-img" >
+        <!--<a href="" data-shutter-title="1"><img src="images/index/index_huge1.jpg" alt="#"></a>-->
+        <!--<a href="" data-shutter-title="2"><img src="images/index/index_huge2.jpg" alt="#"></a>-->
+        <!--<a href="" data-shutter-title="3"><img src="images/index/index_huge3.jpg" alt="#"></a>-->
+        <a href="" data-shutter-title="4"><img src="images/index/index_huge4.jpg" alt="#"></a>
+        <a href="" data-shutter-title="54"><img src="images/index/index_huge5.jpg" alt="#"></a>
+        <a href="" data-shutter-title="54"><img src="images/index/index_huge6.jpg" alt="#"></a>
+        <a href="" data-shutter-title="54"><img src="images/index/index_huge7.jpg" alt="#"></a>
+        <a href="" data-shutter-title="54"><img src="images/index/index_huge8.jpg" alt="#"></a>
+        <a href="" data-shutter-title="54"><img src="images/index/index_huge9.jpg" alt="#"></a>
+    </div>
+    <script id="each_img" type="text/x-jquery-tmpl">
+        <!--{{each activity}}-->
+        <!--<a href="activityDetail.html?activityId={{= $value.id}}" data-shutter-title="{{= $value.title}}"><img src="{{= $value.imageUrl}}" alt="#"></a>-->
+        <!--{{/each}}-->
+    </script>
+    <ul class="shutter-btn">
+        <li class="prev"></li>
+        <li class="next"></li>
+    </ul>
+    <div class="shutter-desc">
+        <p>Iron Man</p>
+    </div>
+</div>
+<div class="block">
+    <ul>
+        <li><img src="images/index/index_blog1.jpg" alt="pic" /><a href="question.html"></a>
+            <div class="shutter-desc">
+                <p>技术帖</p>
+            </div>
+        </li>
+        <li><img src="images/index/index_blog2.jpg" alt="pic" /><a href="blog.html"></a>
+            <div class="shutter-desc">
+                <p>博客</p>
+            </div>
+        </li>
+        <li><img src="images/index/index_blog3.jpg" alt="pic" /><a href="programming.html"></a>
+            <div class="shutter-desc">
+                <p>算法编程题</p>
+            </div>
+        </li>
+        <li><img src="images/index/index_blog4.jpg" alt="pic" /><a href=""></a>
+            <div class="shutter-desc">
+                <p>活动</p>
+            </div>
+        </li>
+    </ul>
+</div>
+</div>
+<div class="clearfix"></div>
+<div id="footer" style="position:static"></div>
+<script src="scripts/jquery.js"></script>
+<script src="scripts/jquery.tmpl.min.js"></script>
+<script>
+    $("#header").empty().load("head.html");
+    $("#footer").empty().load("foot.html");
+</script>
+<script src="scripts/head.js"></script>
+<script src="scripts/index.js"></script>
+<script src="scripts/index/velocity.js"></script>
+<script src="scripts/index/shutter.js"></script>
+</body>
+<script>
+    window.onload = function () {
+        onloadHeader();
+    }
+</script>
+<script>
+    var clientwidth = document.body.clientWidth*0.85;
+    var height = 358/1000*clientwidth;
+
+    $(function () {
+        $('.shutter').shutter({
+            shutterW: clientwidth, // 容器宽度
+            shutterH: height, // 容器高度
+            isAutoPlay: true, // 是否自动播放
+            playInterval: 3000, // 自动播放时间
+            curDisplay: 3, // 当前显示页
+            fullPage: false // 是否全屏展示
+        });
+    });
+</script>
+</html>
