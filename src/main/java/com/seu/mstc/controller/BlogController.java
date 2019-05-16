@@ -87,10 +87,8 @@ public class BlogController {
     public ResultInfo onLoadBlogHot(@RequestBody JSONObject jsonObject){
         ResultInfo result=null;
         try {
-            String beginStr=jsonObject.getString("begin");
-            int begin=Integer.parseInt(beginStr);
-            String endStr=jsonObject.getString("end");
-            int end=Integer.parseInt(endStr);
+            int begin=jsonObject.getInteger("begin");
+            int end=jsonObject.getInteger("end");
             result = blogService.getHotBlogDetail();
         }catch (Exception e){
             e.printStackTrace();
@@ -322,5 +320,10 @@ public class BlogController {
             logger.error("删除博客失败！");
         }
         return result;
+    }
+
+    @RequestMapping(value="/test",method = RequestMethod.GET)
+    public ResultInfo test(){
+        return ResultInfo.ok(null);
     }
 }

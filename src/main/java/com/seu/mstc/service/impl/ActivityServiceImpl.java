@@ -17,6 +17,7 @@ import com.seu.mstc.service.SensitiveService;
 import com.seu.mstc.utils.QuestionUtils;
 import com.seu.mstc.utils.RedisKeyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.HtmlUtils;
 
@@ -80,7 +81,11 @@ public class ActivityServiceImpl implements ActivityService{
         return result;
     }
 
+    /*
+    * @Cacheable当访问参数和缓存内一致时直接命中缓存 不运行后续方法
+    * */
     @Override
+    @Cacheable(value="resultInfo",key="'getActivity:start:'.concat(#start.toString()).concat(':num:').concat(#num.toString())")
     public ResultInfo getActivity(int start,int num) {
         ResultInfo result = null;
         List<Activity> ListActivity = new ArrayList<>();

@@ -102,16 +102,17 @@ function onloadHotBlog() {
         data: data,
         contentType: "application/json",
         error: function () {
-            // alert('加载热门博客请求失败');
+            alert('加载热门博客请求失败');
         },
         success: function (data1) {
             blogHotList = data1.data;
+
             if (!$.isEmptyObject(blogHotList)) {
                 var obj_lis = document.getElementById("hotBlog_content").getElementsByTagName("a");
                 var random=[];
                 while(random.length<=obj_lis.length){
-                var rand=rnd(0, blogHotList.length - 1);
-                if(random.indexOf(rand)==-1) random.push(rand);
+                    var rand=rnd(0, blogHotList.length - 1);
+                    if(random.indexOf(rand)==-1) random.push(rand);
                 }
                 for (i = 0; i < obj_lis.length; i++) {
                     var b=random[i];
@@ -119,6 +120,8 @@ function onloadHotBlog() {
                     obj_lis[i].href = "/blogDetail.html?blogId=" + blogHotList[b].id;
                 }
             }
+
+
             document.getElementById('hidden').style.display='none';
         }
     });
